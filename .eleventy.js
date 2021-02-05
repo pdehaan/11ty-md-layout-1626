@@ -1,20 +1,25 @@
-const markdownIt = require( "markdown-it" );
+const markdownIt = require("markdown-it");
 
-const mdLib = markdownIt( {
+const mdLib = markdownIt({
   typographer: true,
-  quotes: '“”‘’',
+  quotes: "“”‘’",
   html: true,
-} );
+});
 
-module.exports = eleventyConfig => {
+module.exports = (eleventyConfig) => {
   // eleventyConfig.setLibrary( "md", mdLib);
 
-  eleventyConfig.addPairedShortcode("typographer", (content) => mdLib.renderInline(content));
+  eleventyConfig.addLayoutAlias("default", "layouts/base.liquid");
+  eleventyConfig.addLayoutAlias("fancy", "layouts/typographer.liquid");
+
+  eleventyConfig.addPairedShortcode("typographer", (content) =>
+    mdLib.renderInline(content)
+  );
 
   return {
     dir: {
       input: "src",
-      output: "www"
-    }
+      output: "www",
+    },
   };
 };

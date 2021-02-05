@@ -1,6 +1,6 @@
 ---
 title: one (default)
-layout: layouts/base.liquid
+layout: default
 ---
 
 <div>

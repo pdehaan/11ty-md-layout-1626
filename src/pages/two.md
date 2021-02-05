@@ -1,6 +1,6 @@
 ---
 title: two (custom)
-layout: layouts/typographer.liquid
+layout: fancy
 ---
 
 <div>
